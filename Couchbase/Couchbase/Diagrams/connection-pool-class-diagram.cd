@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Couchbase.IO.DefaultConnectionPool">
+    <Position X="4" Y="0.5" Width="2" />
+    <AssociationLine Name="_store" Type="System.Collections.Concurrent.ConcurrentQueue&lt;T&gt;" FixedFromPoint="true">
+      <Path>
+        <Point X="6" Y="2.5" />
+        <Point X="7.75" Y="2.5" />
+        <Point X="7.75" Y="1.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAiAEQwAgAgAAAAQAAAAAAAAAAACCAJAAAAA=</HashCode>
+      <FileName>IO\DefaultConnectionPool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_store" />
+      <Field Name="_factory" />
+      <Property Name="Config" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Collections.Concurrent.ConcurrentQueue&lt;T&gt;" Collapsed="true">
+    <Position X="6.75" Y="1" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Couchbase.Configuration.Client.IConnectionPoolConfig">
+    <Position X="1" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAgAAAAAAAAACgAEAAAAACA=</HashCode>
+      <FileName>Configuration\Client\IConnectionPoolConfig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Delegate Name="System.Func&lt;T, TResult&gt;" Collapsed="true">
+    <Position X="1.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

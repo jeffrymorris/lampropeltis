@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Couchbase.Server">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACEEQAAAAEAAAAAAAAAAIAAAAgEAQAAAAAA=</HashCode>
+      <FileName>Server.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_connectionPool" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_buckets" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Couchbase.IO.IConnectionPool">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAQQAAAgAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>IO\IConnectionPool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Config" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Couchbase.IBucket">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>IBucket.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Couchbase.Configuration.Client.IConnectionPoolConfig">
+    <Position X="3" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAgAAAAAAAAACgAEAAAAACA=</HashCode>
+      <FileName>Configuration\Client\IConnectionPoolConfig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

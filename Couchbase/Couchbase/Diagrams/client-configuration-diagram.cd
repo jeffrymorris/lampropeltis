@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Couchbase.Configuration.Client.CouchbaseClientConfig">
+    <Position X="4.25" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAgAAAAAAABAAAAAAAAAAAAAAkAAQAgACAAAAAAA=</HashCode>
+      <FileName>Configuration\Client\CouchbaseClientConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BootstrapConfiguration" />
+      <Property Name="ConfigProviderConfig" />
+      <Property Name="ConnectionPoolConfiguration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Couchbase.Configuration.Client.ProviderSettings">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Configuration\Client\ProviderSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Couchbase.Configuration.Client.IBootstrapConfig">
+    <Position X="4.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\Client\IBootstrapConfig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Couchbase.Configuration.Client.IConfigProviderConfig">
+    <Position X="0.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\Client\IConfigProviderConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Providers" />
+    </ShowAsCollectionAssociation>
+  </Interface>
+  <Interface Name="Couchbase.Configuration.Client.IConnectionPoolConfig">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAgAAAAAAAAACgAEAAAAACA=</HashCode>
+      <FileName>Configuration\Client\IConnectionPoolConfig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

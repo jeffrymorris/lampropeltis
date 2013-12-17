@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Couchbase.Configuration.DefaultConfig">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAgAAQAAACAAIEAAAAACAgAAAEAA=</HashCode>
+      <FileName>Configuration\DefaultConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_hashAlgorithm" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_cluster" />
+      <Field Name="_vBuckets" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Security.Cryptography.HashAlgorithm" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Couchbase.Encryption.Crc32" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABCAQACAEAAQAAAAAAAAAAAAAAAAABAEAA=</HashCode>
+      <FileName>Encryption\Crc32.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Couchbase.IServer">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAQAAAAEAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>IServer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConnectionPool" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Couchbase.IVBucket">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAIAAAAAAAAAAAAAAAAEAEgCAAAA=</HashCode>
+      <FileName>IVBucket.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Couchbase.IO.IConnectionPool">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAgAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>IO\IConnectionPool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Config" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Couchbase.Configuration.Client.IConnectionPoolConfig">
+    <Position X="9.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAgAAAAAAAAACgAEAAAAACA=</HashCode>
+      <FileName>Configuration\Client\IConnectionPoolConfig.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
