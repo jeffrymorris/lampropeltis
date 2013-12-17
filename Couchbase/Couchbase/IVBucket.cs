@@ -4,11 +4,11 @@ namespace Couchbase
 {
     public interface IVBucket
     {
-        IServer LocatePrimary();
+        INode LocatePrimary();
 
-        IServer LocateReplica();
+        INode LocateReplica();
 
-        List<IServer> Replicas { get; }
+        List<INode> Replicas { get; }
 
         int Index { get; }
 

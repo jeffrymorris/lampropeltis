@@ -75,7 +75,7 @@
     <Compile Include="IO\Operations\IOperationResponse.cs" />
     <Compile Include="IO\Operations\SetOperation.cs" />
     <Compile Include="IO\ResponseStatus.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="VBucket.cs" />
     <Compile Include="Configuration\Server\VBucketServerMap.cs" />
     <Compile Include="Configuration\Server\VBucketServerMapConverter.cs" />
@@ -91,7 +91,7 @@
     <Compile Include="IVBucket.cs" />
     <Compile Include="Configuration\Server\IVBucketServerMap.cs" />
     <Compile Include="Configuration\Server\Node.cs" />
-    <Compile Include="IServer.cs" />
+    <Compile Include="INode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

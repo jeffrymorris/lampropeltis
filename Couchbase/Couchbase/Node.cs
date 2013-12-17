@@ -8,19 +8,19 @@ using Couchbase.IO.Operations;
 
 namespace Couchbase
 {
-    public class Server : IServer
+    public class Node : INode
     {
         private readonly IPEndPoint _endPoint;
         private readonly IConnectionPool _connectionPool;
         private readonly List<IBucket> _buckets = new List<IBucket>();
         private bool _disposed;
 
-        public Server(string server)
+        public Node(string server)
         {
             _endPoint = GetEndPoint(server);
         }
 
-        public Server(string server, IConnectionPool connectionPool) 
+        public Node(string server, IConnectionPool connectionPool) 
             :this(server)
         {
             _connectionPool = connectionPool;
@@ -28,7 +28,7 @@ namespace Couchbase
             _connectionPool.Initialize();
         }
 
-        public Server(string server, IConnectionPool connectionPool, List<IBucket> buckets)
+        public Node(string server, IConnectionPool connectionPool, List<IBucket> buckets)
             : this(server, connectionPool)
         {
             _buckets = buckets;
@@ -85,7 +85,7 @@ namespace Couchbase
             _disposed = true;
         }
 
-        ~Server()
+        ~Node()
         {
             Dispose(false);
         }

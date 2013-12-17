@@ -29,8 +29,8 @@ namespace Couchbase.Tests
 
             var vBucketServerMap = _clusterMap.VBucketServerMap;
             var servers = vBucketServerMap.
-                ServerList.Select(server => new Server(server)).
-                Cast<IServer>().
+                ServerList.Select(server => new Node(server)).
+                Cast<INode>().
                 ToList();
 
             var vBuckets = new Dictionary<int, IVBucket>();

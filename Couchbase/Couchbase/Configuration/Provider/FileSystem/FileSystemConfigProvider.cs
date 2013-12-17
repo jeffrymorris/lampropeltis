@@ -65,10 +65,10 @@ namespace Couchbase.Configuration.Provider.FileSystem
             _configInfo = new DefaultConfig(new Crc32(), servers, vBuckets);
         }
 
-        IServer CreateServer(string server)
+        INode CreateServer(string server)
         {
             var connectionPool = new DefaultConnectionPool(_clientConfig.ConnectionPoolConfiguration, _factory);
-            return new Couchbase.Server(server, connectionPool);
+            return new Couchbase.Node(server, connectionPool);
         }
 
         public IConfigInfo GetCached()

@@ -72,7 +72,7 @@ namespace Couchbase.Tests
         public void TestNodes()
         {
             const int nodesCount = 2;
-            var expected = new Node
+            var expected = new Couchbase.Configuration.Server.Node
             {
                 CouchAPIBase = new Uri("http://192.168.56.102:8092/default"),
                 Replication = "0",

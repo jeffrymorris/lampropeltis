@@ -55,7 +55,7 @@
     <Compile Include="FileSystemConfigProviderTests.cs" />
     <Compile Include="Operations\SetOperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerTests.cs" />
+    <Compile Include="NodeTests.cs" />
     <Compile Include="VBucketTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,10 +11,10 @@ namespace Couchbase.Tests
         [SetUp]
         public void SetUp()
         {
-            var cluster = new List<IServer>
+            var cluster = new List<INode>
             {
-                new Server("192.168.56.102:11210"),
-                new Server("192.168.56.101:11210")
+                new Node("192.168.56.102:11210"),
+                new Node("192.168.56.101:11210")
             };
             _vBucket = new VBucket(cluster, 100, 0, 1);
         }

@@ -12,10 +12,10 @@ namespace Couchbase.Configuration
         private const int Mask = 1023;
         private readonly HashAlgorithm _hashAlgorithm;
         private readonly Dictionary<int, IVBucket> _vBuckets;
-        private readonly List<IServer> _cluster;
+        private readonly List<INode> _cluster;
         private readonly DateTime _creationTime = DateTime.Now;
 
-        public DefaultConfig(HashAlgorithm hashAlgorithm, List<IServer> cluster, Dictionary<int, IVBucket> vBuckets)
+        public DefaultConfig(HashAlgorithm hashAlgorithm, List<INode> cluster, Dictionary<int, IVBucket> vBuckets)
         {
             _hashAlgorithm = hashAlgorithm;
             _vBuckets = vBuckets;
@@ -41,7 +41,7 @@ namespace Couchbase.Configuration
             get { return _creationTime; }
         }
 
-        public List<IServer> GetServers()
+        public List<INode> GetServers()
         {
             return _cluster.ToList();
         }

@@ -10,9 +10,9 @@ using NUnit.Framework;
 namespace Couchbase.Tests
 {
     [TestFixture]
-    public class ServerTests
+    public class NodeTests
     {
-        private IServer _server;
+        private INode _server;
         const string ServerAddress = "192.168.56.101:11210";
         private const string DefaultPath = @"Data\\Configs\\cluster-map.json";
         private readonly ICouchbaseClientConfig _config = new CouchbaseClientConfig(DefaultPath);
@@ -24,7 +24,7 @@ namespace Couchbase.Tests
         {
             var factory = ConnectionFactory.GetDefault();
             _connectionPool = new DefaultConnectionPool(_config.ConnectionPoolConfiguration, factory);
-            _server = new Server(ServerAddress, _connectionPool, _buckets);
+            _server = new Node(ServerAddress, _connectionPool, _buckets);
         }
 
         [Test]

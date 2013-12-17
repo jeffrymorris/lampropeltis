@@ -53,7 +53,7 @@ namespace Couchbase
         }
 
 
-        public IServer GetServerForKey(string key)
+        public INode GetServerForKey(string key)
         {
             //TODO refactor so not hardcoded - this is just to illustrate/validate
             const int fileSystemProviderIndex = 2;

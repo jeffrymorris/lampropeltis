@@ -12,6 +12,6 @@ namespace Couchbase
 
         void Initialize();
 
-        IServer GetServerForKey(string key);
+        INode GetServerForKey(string key);
     }
 }

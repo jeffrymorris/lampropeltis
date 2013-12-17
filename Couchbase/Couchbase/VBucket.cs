@@ -8,9 +8,9 @@ namespace Couchbase
         private readonly int _primary;
         private readonly int _replica;
         private readonly int _index;
-        private readonly List<IServer> _cluster;
+        private readonly List<INode> _cluster;
 
-        public VBucket(List<IServer> cluster, int index, int primary, int replica)
+        public VBucket(List<INode> cluster, int index, int primary, int replica)
         {
             _cluster = cluster;
             _index = index;
@@ -18,12 +18,12 @@ namespace Couchbase
             _replica = replica;
         }
 
-        public IServer LocatePrimary()
+        public INode LocatePrimary()
         {
             return _cluster[Primary];
         }
 
-        public List<IServer> Replicas
+        public List<INode> Replicas
         {
             get { return _cluster.Skip(1).ToList(); }
         }
@@ -34,7 +34,7 @@ namespace Couchbase
 
         public int Replica { get { return _replica; } }
 
-        public IServer LocateReplica()
+        public INode LocateReplica()
         {
             return _cluster[Replica];
         }

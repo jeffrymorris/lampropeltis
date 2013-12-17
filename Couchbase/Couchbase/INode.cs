@@ -6,7 +6,7 @@ using Couchbase.IO.Operations;
 
 namespace Couchbase
 {
-    public interface IServer : IDisposable
+    public interface INode : IDisposable
     {
         IPEndPoint EndPoint { get; }
 

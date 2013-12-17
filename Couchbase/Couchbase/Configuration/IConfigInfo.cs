@@ -13,6 +13,6 @@ namespace Couchbase.Configuration
 
         DateTime CreationTime { get; }
 
-        List<IServer> GetServers();
+        List<INode> GetServers();
     }
 }
