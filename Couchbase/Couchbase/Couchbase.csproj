@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,11 +37,6 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bucket.cs" />
@@ -61,27 +57,38 @@
     <Compile Include="Configuration\Provider\Publication\CccpConfigProvider.cs" />
     <Compile Include="Configuration\Provider\Streaming\StreamingConfigProvider.cs" />
     <Compile Include="Configuration\Server\ClusterMap.cs" />
-    <Compile Include="Configuration\Server\IBucket.cs" />
     <Compile Include="Configuration\Server\NodeTypeConverter.cs" />
     <Compile Include="CouchbaseClient.cs" />
     <Compile Include="Encryption\Crc32.cs" />
     <Compile Include="IBucket.cs" />
     <Compile Include="IClusterState.cs" />
+    <Compile Include="IO\BufferExtensions.cs" />
     <Compile Include="IO\Connection.cs" />
     <Compile Include="IO\ConnectionFactory.cs" />
     <Compile Include="IO\DefaultConnectionPool.cs" />
-    <Compile Include="IO\OpCode.cs" />
+    <Compile Include="IO\IOStrategy.cs" />
+    <Compile Include="IO\Operations\Magic.cs" />
+    <Compile Include="IO\Operations\OpCode.cs" />
+    <Compile Include="IO\Operations\OperationBase.cs" />
+    <Compile Include="IO\Operations\OperationBody.cs" />
+    <Compile Include="IO\Operations\OperationHeader.cs" />
+    <Compile Include="IO\Operations\GetOperation.cs" />
     <Compile Include="IO\Operations\IOperationRequest.cs" />
-    <Compile Include="IO\Operations\IOperationResponse.cs" />
+    <Compile Include="IO\Operations\OperationResult.cs" />
     <Compile Include="IO\Operations\SetOperation.cs" />
     <Compile Include="IO\ResponseStatus.cs" />
+    <Compile Include="IO\Strategies\BlockingIOStrategy.cs" />
+    <Compile Include="IO\Utils\BinaryConverter.cs" />
+    <Compile Include="IO\Utils\HeaderIndexFor.cs" />
+    <Compile Include="IO\Utils\SocketAwaitable.cs" />
+    <Compile Include="IO\Utils\SocketExtensions.cs" />
     <Compile Include="Node.cs" />
+    <Compile Include="Serialization\ITypeSerializer.cs" />
+    <Compile Include="Serialization\TypeSerializer.cs" />
     <Compile Include="VBucket.cs" />
     <Compile Include="Configuration\Server\VBucketServerMap.cs" />
     <Compile Include="Configuration\Server\VBucketServerMapConverter.cs" />
-    <Compile Include="Configuration\ICluster.cs" />
     <Compile Include="Configuration\Server\IClusterMap.cs" />
-    <Compile Include="Configuration\Client\IConfiguration.cs" />
     <Compile Include="IClient.cs" />
     <Compile Include="IO\Operations\IOperation.cs" />
     <Compile Include="IO\Operations\IOperationResult.cs" />

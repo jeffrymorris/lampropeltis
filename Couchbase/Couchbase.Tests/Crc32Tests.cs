@@ -11,7 +11,7 @@ namespace Couchbase.Tests
         [Test]
         public void Test()
         {
-            var key = "get_unit_test_635223099507033468";
+            const string key = "get_unit_test_635223099507033468";
             var keyBytes = Encoding.UTF8.GetBytes(key);
             var crc = new Crc32();
             var bytes = crc.ComputeHash(keyBytes);

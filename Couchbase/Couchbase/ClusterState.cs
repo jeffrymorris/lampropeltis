@@ -52,7 +52,6 @@ namespace Couchbase
             }
         }
 
-
         public INode GetServerForKey(string key)
         {
             //TODO refactor so not hardcoded - this is just to illustrate/validate
@@ -61,6 +60,15 @@ namespace Couchbase
             var config = provider.GetCached();
             var vBucket = config.HashToVBucket(key);
             return vBucket.LocatePrimary();
+        }
+
+        public IVBucket GetVBucket(string key)
+        {
+            const int fileSystemProviderIndex = 2;
+            var provider = _providers[fileSystemProviderIndex];
+            var config = provider.GetCached();
+            var vBucket = config.HashToVBucket(key);
+            return vBucket;
         }
     }
 }

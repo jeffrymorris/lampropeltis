@@ -8,5 +8,7 @@ namespace Couchbase.IO
         Socket Handle { get; }
 
         Guid Identity { get; }
+
+        //void Execute(IOperation operation);
     }
 }

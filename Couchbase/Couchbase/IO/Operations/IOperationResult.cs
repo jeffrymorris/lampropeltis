@@ -1,12 +1,16 @@
 ﻿
 namespace Couchbase.IO.Operations
 {
-    public interface IOperationResult
+    public interface IOperationResult<out T>
     {
         bool Success { get; }
 
-        object Value { get; }
+        T Value { get; }
 
         string Message { get; }
+
+        ResponseStatus Status { get; }
+
+        ulong Cas { get; }
     }
 }

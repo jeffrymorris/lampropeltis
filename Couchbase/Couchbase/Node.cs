@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Couchbase.Configuration.Server;
 using Couchbase.IO;
 using Couchbase.IO.Operations;
 
@@ -13,6 +12,7 @@ namespace Couchbase
         private readonly IPEndPoint _endPoint;
         private readonly IConnectionPool _connectionPool;
         private readonly List<IBucket> _buckets = new List<IBucket>();
+        private readonly IOStrategy _ioStrategy;
         private bool _disposed;
 
         public Node(string server)
@@ -20,16 +20,17 @@ namespace Couchbase
             _endPoint = GetEndPoint(server);
         }
 
-        public Node(string server, IConnectionPool connectionPool) 
+        public Node(string server, IConnectionPool connectionPool, IOStrategy ioStrategy) 
             :this(server)
         {
             _connectionPool = connectionPool;
             _connectionPool.EndPoint = EndPoint;
             _connectionPool.Initialize();
+            _ioStrategy = ioStrategy;
         }
 
-        public Node(string server, IConnectionPool connectionPool, List<IBucket> buckets)
-            : this(server, connectionPool)
+        public Node(string server, IConnectionPool connectionPool, List<IBucket> buckets, IOStrategy ioStrategy) 
+            : this(server, connectionPool, ioStrategy)
         {
             _buckets = buckets;
         }
@@ -60,9 +61,9 @@ namespace Couchbase
             get { return _endPoint; }
         }
 
-        public IOperationResult Send(IOperation operation)
+        public IOperationResult<T> Send<T>(IOperation<T> operation)
         {
-            throw new NotImplementedException();
+            return _ioStrategy.Execute(operation);
         }
 
         public IConnectionPool ConnectionPool

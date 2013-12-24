@@ -13,5 +13,6 @@ namespace Couchbase
         void Initialize();
 
         INode GetServerForKey(string key);
+        IVBucket GetVBucket(string key);
     }
 }

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Couchbase.IO.Operations;
+﻿using Couchbase.IO.Operations;
 
 namespace Couchbase
 {
     public interface IClient
     {
-        IOperationResult Get(string key);
+        IOperationResult<T> Get<T>(string key);
 
-        IOperationResult Set(string key, object value);
+        IOperationResult<T> Set<T>(string key, T value);
     }
 }

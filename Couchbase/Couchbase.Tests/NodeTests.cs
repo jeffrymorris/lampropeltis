@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Net.Sockets;
 using Couchbase.Configuration.Client;
-using Couchbase.Configuration.Server;
 using Couchbase.IO;
 using NUnit.Framework;
 
@@ -13,8 +10,8 @@ namespace Couchbase.Tests
     public class NodeTests
     {
         private INode _server;
-        const string ServerAddress = "192.168.56.101:11210";
-        private const string DefaultPath = @"Data\\Configs\\cluster-map.json";
+        const string ServerAddress = "127.0.0.1:11210";
+        private const string DefaultPath = @"Data\\Configs\\localhost-clustermap-default.json";
         private readonly ICouchbaseClientConfig _config = new CouchbaseClientConfig(DefaultPath);
         private readonly List<IBucket> _buckets = new List<IBucket> {new Bucket("default", "", "")};
         private IConnectionPool _connectionPool;
@@ -24,7 +21,7 @@ namespace Couchbase.Tests
         {
             var factory = ConnectionFactory.GetDefault();
             _connectionPool = new DefaultConnectionPool(_config.ConnectionPoolConfiguration, factory);
-            _server = new Node(ServerAddress, _connectionPool, _buckets);
+            _server = new Node(ServerAddress, _connectionPool, _buckets, null);
         }
 
         [Test]

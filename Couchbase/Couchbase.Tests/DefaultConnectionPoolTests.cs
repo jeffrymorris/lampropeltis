@@ -23,7 +23,7 @@ namespace Couchbase.Tests
         [SetUp]
         public void SetUp()
         {
-            var ipEndpoint = Couchbase.Node.GetEndPoint(Server);
+            var ipEndpoint = Node.GetEndPoint(Server);
             var factory = ConnectionFactory.GetDefault();
             _config = new ConnectionPoolConfig(MaxSize, MinSize, WaitTimeout, RecieveTimeout, ShutdownTimeout, SendTimeout);
             _connectionPool = new DefaultConnectionPool(_config, ipEndpoint, factory);

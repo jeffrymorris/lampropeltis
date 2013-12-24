@@ -9,7 +9,7 @@ namespace Couchbase.Tests
     [TestFixture]
     public class FileSystemConfigProviderTests
     {
-        private const string DefaultPath = @"Data\\Configs\\cluster-map.json";
+        private const string DefaultPath = @"Data\\Configs\\localhost-clustermap-default.json";
         private readonly ICouchbaseClientConfig _defaultClientConfig = new CouchbaseClientConfig(DefaultPath);
         private IConfigProvider _provider;
 
@@ -24,7 +24,7 @@ namespace Couchbase.Tests
         {
             var configInfo = _provider.GetCached();
             Assert.IsNotNull(configInfo);
-            Assert.AreEqual(2, configInfo.GetServers().Count);
+            Assert.AreEqual(1, configInfo.GetServers().Count);
         }
     }
 }

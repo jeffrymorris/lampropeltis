@@ -1,4 +1,4 @@
-﻿namespace Couchbase.IO
+﻿namespace Couchbase.IO.Operations
 {
     public enum OpCode : byte
     {

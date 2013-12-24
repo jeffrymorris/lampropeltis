@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Couchbase.IO.Operations
 {
-    public class SetOperation
+    public class SetOperation<T> 
+        : OperationBase<T>
     {
+        public SetOperation(string key, T value, IVBucket vBucket) 
+            : base(key, value, vBucket)
+        {
+        }
+
+        public override OpCode OpCode
+        {
+            get { return OpCode.Set; }
+        }
     }
 }

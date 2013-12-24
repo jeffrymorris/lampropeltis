@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Net.Sockets;
+using System.Threading.Tasks;
+using Couchbase.IO.Operations;
+using Couchbase.IO.Utils;
 
 namespace Couchbase.IO
 {
@@ -67,6 +70,33 @@ namespace Couchbase.IO
         public Guid Identity
         {
             get { return _identity; }
+        }
+
+        public void Execute<T>(IOperation<T> operation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static async Task ReadAsync(IConnection connection)
+        {
+            var args = new SocketAsyncEventArgs();
+            args.SetBuffer(new byte[0x1000],0, 0x1000);
+            var awaitable = new SocketAwaitable(args);
+
+            while (true)
+            {
+                await connection.Handle.ReceiveAsync(awaitable);
+                int bytesRead = args.BytesTransferred;
+                if (bytesRead <= 0) break;
+
+                Console.WriteLine(bytesRead);
+            }
+        }
+
+        public static async Task SendAsync(IConnection connection)
+        {
+            var args = new SocketAsyncEventArgs();
+            
         }
     }
 }

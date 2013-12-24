@@ -10,7 +10,7 @@ namespace Couchbase
     {
         IPEndPoint EndPoint { get; }
 
-        IOperationResult Send(IOperation operation);
+        IOperationResult<T> Send<T>(IOperation<T> operation);
 
         IConnectionPool ConnectionPool { get; }
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Couchbase.Configuration.Client;
+﻿using Couchbase.Configuration.Client;
 using NUnit.Framework;
 
 namespace Couchbase.Tests
@@ -12,7 +7,7 @@ namespace Couchbase.Tests
     public class ClusterStateTests
     {
         private IClusterState _state;
-        private const string DefaultPath = @"Data\\Configs\\cluster-map.json";
+        private const string DefaultPath = @"Data\\Configs\\localhost-clustermap-default.json";
         private readonly ICouchbaseClientConfig _defaultClientConfig = new CouchbaseClientConfig(DefaultPath);
 
         [SetUp]

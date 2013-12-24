@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Sockets;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using Couchbase.Configuration.Client;
 using Couchbase.Configuration.Server;
 using Couchbase.Encryption;
 using Couchbase.IO;
+using Couchbase.IO.Strategies;
 using Newtonsoft.Json;
 
 namespace Couchbase.Configuration.Provider.FileSystem
@@ -68,7 +65,8 @@ namespace Couchbase.Configuration.Provider.FileSystem
         INode CreateServer(string server)
         {
             var connectionPool = new DefaultConnectionPool(_clientConfig.ConnectionPoolConfiguration, _factory);
-            return new Couchbase.Node(server, connectionPool);
+            var ioStrategy = new BlockingIOStrategy(connectionPool);//for illustration only, should be configurable
+            return new Couchbase.Node(server, connectionPool, ioStrategy);
         }
 
         public IConfigInfo GetCached()
