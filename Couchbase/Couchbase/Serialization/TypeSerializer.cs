@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 using Couchbase.IO.Operations;
 
@@ -38,12 +39,13 @@ namespace Couchbase.Serialization
             var typeCode = Type.GetTypeCode(type);
             var operationBody = operation.Body;
             var data = operationBody.Data;
+            var bodyLength = operation.Header.BodyLength;
 
             object value = null;
             switch (typeCode)
             {
                 case TypeCode.String:
-                    value = GetString(data);
+                    value = GetString(data, OperationBase<T>.HeaderLength, bodyLength);
                     break;
                 case TypeCode.Int32:
                     value = GetInt32(data);
@@ -65,6 +67,16 @@ namespace Couchbase.Serialization
         static byte[] GetBytes(int value)
         {
             return BitConverter.GetBytes(value);
+        }
+
+        private static string GetString(ArraySegment<byte> bytes, int offset, int length)
+        {
+            var result = string.Empty;
+            if (bytes.Array != null)
+            {
+                result = Encoding.UTF8.GetString(bytes.Array, offset, length);
+            }
+            return result;
         }
 
         static string GetString(ArraySegment<byte> bytes)

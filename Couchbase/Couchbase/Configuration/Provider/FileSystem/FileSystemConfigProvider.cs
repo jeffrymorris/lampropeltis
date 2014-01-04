@@ -55,7 +55,7 @@ namespace Couchbase.Configuration.Provider.FileSystem
                 var replica = vBucketServerMap.VBucketMap[i][1];
                 var vBucket = new VBucket(servers, i, primary, replica);
                 vBuckets[i] = vBucket;
-                Console.WriteLine("Index=>{0} : [{1}, {2}]", i, primary, replica);
+                //Console.WriteLine("Index=>{0} : [{1}, {2}]", i, primary, replica);
             }
 
             //TODO make injectable via Func<>?

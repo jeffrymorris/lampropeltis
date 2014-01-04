@@ -70,5 +70,11 @@ namespace Couchbase.IO.Strategies
                     Data = new ArraySegment<byte>(buffer, header.ExtrasLength, buffer.Length - header.BodyLength),
                 };
         }
+
+
+        public System.Threading.Tasks.Task<IOperationResult<T>> ExecuteAsync<T>(IOperation<T> operation)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

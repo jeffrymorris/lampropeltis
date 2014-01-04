@@ -9,9 +9,6 @@ namespace Couchbase.Tests.Operations
     [TestFixture]
     public class GetOperationTests : OperationTestsBase
     {
-       // private static string Key = "MyKey";
-       // private static string Value = "MyValue";
-
         [Test]
         public void TestGet()
         {

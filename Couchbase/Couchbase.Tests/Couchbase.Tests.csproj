@@ -47,14 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APMTests.cs" />
+    <Compile Include="AsyncEventArgsTests.cs" />
     <Compile Include="BlockingIOStrategyTests.cs" />
     <Compile Include="ClusterMapTests.cs" />
     <Compile Include="ClusterStateTests.cs" />
     <Compile Include="Client\CouchbaseClientTests.cs" />
+    <Compile Include="SocketAwaitableTests.cs" />
     <Compile Include="Crc32Tests.cs" />
     <Compile Include="DefaultConfigTests.cs" />
     <Compile Include="DefaultConnectionPoolTests.cs" />
     <Compile Include="FileSystemConfigProviderTests.cs" />
+    <Compile Include="AwaitableIOStrategyTests.cs" />
+    <Compile Include="Onemore.cs" />
+    <Compile Include="OperationAsyncState.cs" />
     <Compile Include="Operations\GetOperationTests.cs" />
     <Compile Include="Operations\OperationTestsBase.cs" />
     <Compile Include="Operations\SetOperationTests.cs" />

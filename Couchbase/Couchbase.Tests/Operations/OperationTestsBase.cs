@@ -23,8 +23,8 @@ namespace Couchbase.Tests.Operations
         protected IConnectionPool _connectionPool;
         protected IConnectionPoolConfig _config;
 
-        protected const string Key = "MyTestKeyhhhhhhhhhh";
-        protected const string Value = "MyTestValue";
+        protected const string Key = "Hello";
+        protected const string Value = "Gorld";
 
         [TestFixtureSetUp]
         public virtual void SetUp()

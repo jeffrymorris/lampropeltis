@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using Couchbase.IO.Utils;
@@ -9,6 +10,7 @@ namespace Couchbase.IO.Operations
 {
     public abstract class OperationBase<T> : IOperation<T>
     {
+        public const int HeaderLength = 24;
         private static int _sequenceId;//needs to be resolved
         private readonly int _opaque;
         private readonly ITypeSerializer _serializer;
@@ -41,7 +43,10 @@ namespace Couchbase.IO.Operations
 
         public T Value
         {
-            get { return _value; }
+            get
+            {
+                return Serializer.Deserialize(this);
+            }
         }
 
         public IVBucket VBucket
@@ -94,11 +99,23 @@ namespace Couchbase.IO.Operations
                 };
         }
 
+
+
+        int GetLength(byte[] bytes)
+        {
+            int length = 0;
+            if (bytes != null)
+            {
+                length = bytes.Length;
+            }
+            return length;
+        }
+
         public virtual ArraySegment<byte> CreateHeader(byte[] extras, byte[] body, byte[] key)
         {
             var header = new ArraySegment<byte>(new byte[24]);
             var buffer = header.Array;
-            var totalLength = extras.Length + key.Length + body.Length;
+            var totalLength = GetLength(extras) + GetLength(key) + GetLength(body);
 
             //0 magic and 1 opcode
             buffer[0x00] = (byte)Magic.Request;
@@ -109,7 +126,7 @@ namespace Couchbase.IO.Operations
             buffer[0x03] = (byte)(key.Length & 255);
 
             //4 extra length
-            buffer[0x04] = (byte)(extras.Length);
+            buffer[0x04] = (byte)(GetLength(extras));
 
             //5 data type?
 
@@ -140,6 +157,33 @@ namespace Couchbase.IO.Operations
         public ITypeSerializer Serializer
         {
             get { return _serializer; }
+        }
+
+        //refactor
+        public byte[] GetBuffer()
+        {
+            var buffer = CreateBuffer();
+            var bytes =new byte[
+                GetLength(buffer[0].Array) + 
+                GetLength(buffer[1].Array) + 
+                GetLength(buffer[2].Array) +
+                GetLength(buffer[3].Array)];
+
+            var count = 0;
+            foreach (var segment in buffer)
+            {
+                foreach (var b in segment.ToArray())
+                {
+                    bytes[count++] = b;
+                }
+            }
+            return bytes;
+        }
+
+
+        public int SequenceId
+        {
+            get { return _sequenceId + GetHashCode(); }
         }
     }
 }

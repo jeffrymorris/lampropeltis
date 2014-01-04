@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Couchbase.IO.Operations
 {
@@ -16,12 +17,12 @@ namespace Couchbase.IO.Operations
 
         public override ArraySegment<byte> CreateBody()
         {
-            return new ArraySegment<byte>(new byte[0x00]);
+            return new ArraySegment<byte>(new byte[] { });
         }
 
         public override ArraySegment<byte> CreateExtras()
         {
-            return new ArraySegment<byte>(new byte[0x00]);
+            return new ArraySegment<byte>(new byte[]{});
         }
     }
 }

@@ -78,6 +78,10 @@
     <Compile Include="IO\Operations\SetOperation.cs" />
     <Compile Include="IO\ResponseStatus.cs" />
     <Compile Include="IO\Strategies\BlockingIOStrategy.cs" />
+    <Compile Include="IO\Strategies\BufferManager.cs" />
+    <Compile Include="IO\Strategies\AwaitableIOStrategy.cs" />
+    <Compile Include="IO\Strategies\OperationAsyncState.cs" />
+    <Compile Include="IO\Strategies\SocketAsyncEventArgsPool.cs" />
     <Compile Include="IO\Utils\BinaryConverter.cs" />
     <Compile Include="IO\Utils\HeaderIndexFor.cs" />
     <Compile Include="IO\Utils\SocketAwaitable.cs" />
@@ -111,7 +115,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IO\Http\" />
+    <Folder Include="IO\Strategies\Http\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

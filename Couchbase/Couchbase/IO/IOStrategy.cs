@@ -1,4 +1,5 @@
-﻿using Couchbase.IO.Operations;
+﻿using System.Threading.Tasks;
+using Couchbase.IO.Operations;
 
 namespace Couchbase.IO
 {

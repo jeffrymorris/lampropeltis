@@ -9,13 +9,10 @@ namespace Couchbase.Tests.Operations
     [TestFixture]
     public class SetOperationTests : OperationTestsBase
     {
-        private new const string Key = "MyKey";
-        private new const string Value = "MyValue";
-
         [Test]
         public void TestSet()
         {
-            var operation = new SetOperation<string>(Key, Value, _vBucket);
+            var operation = new SetOperation<string>(Key, "peep", _vBucket);
 
             var buffer = operation.CreateBuffer();
             Assert.AreEqual(buffer.Count, 4);
